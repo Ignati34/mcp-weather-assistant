@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Погода · AI-помощник</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="На главную"><span class="brand-icon">☀</span><span>Погода<span class="brand-muted"> / AI-помощник</span></span></a>
+      <div class="header-actions"><span id="service-status" class="status"><i></i><span>Проверка сервера…</span></span><button id="new-chat" class="button button-light">＋ Новый диалог</button></div>
+    </header>
+    <div class="layout">
+      <section class="chat-panel">
+        <div class="panel-heading"><div><div class="eyebrow">ВАШ ПОМОЩНИК</div><h1>Узнайте погоду</h1><p>Задайте вопрос о городе — помощник запросит свежие данные у MCP-сервера.</p></div><div class="avatar">☁</div></div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div class="composer-wrap">
+          <div class="suggestions"><button class="suggestion">Какая сейчас погода в Екатеринбурге?</button><button class="suggestion">А в Казани?</button></div>
+          <form id="chat-form" class="composer"><textarea id="message-input" rows="1" maxlength="4000" placeholder="Спросите о погоде…" aria-label="Ваш вопрос"></textarea><button id="send-button" class="send-button" type="submit" aria-label="Отправить">↑</button></form>
+          <div class="composer-note">Ответы основаны на данных инструментов MCP. При неоднозначном городе помощник уточнит расположение.</div>
+        </div>
+      </section>
+      <aside class="context-panel">
+        <div class="context-title"><div><div class="eyebrow">КОНТЕКСТ</div><h2>Последний запрос</h2></div><span class="context-icon">⌁</span></div>
+        <section id="weather-card" class="weather-card empty-card">
+          <div class="empty-icon">◌</div><h3>Пока нет данных</h3><p>После ответа MCP здесь появятся фактический результат и параметры запроса.</p>
+        </section>
+        <section class="info-card"><span class="info-icon">↗</span><div><h3>Откуда данные?</h3><p>Приложение использует инструменты сервера <code>weather.chukai.io</code>. Источник, единицы и время показываются только если они есть в ответе сервера.</p></div></section>
+        <div class="context-footer"><span class="pulse"></span> Данные запрашиваются для каждого нового города</div>
+      </aside>
+    </div>
+    <footer>Учебный проект · Этап 1 · Локальный запуск</footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
